@@ -7,10 +7,12 @@ SERVER = "[SERVER]"
 CONNECTION = "[CONNECTION]"
 
 class Server:
-	def __init__(self, host=socket.gethostbyname(socket.gethostname()), port=5555, maxPeople=10):
+	def __init__(self, host=socket.gethostbyname(socket.gethostname()), port=5555, maxPeople=10, byteSize=2048, encoding="utf-8"):
 		self.host = host
 		self.port = port
 		self.maxServer = maxPeople
+		self.byteSize = byteSize
+		self.encoding = encoding
 		self.addr = (self.port, self.port)
 
 		self.server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -23,9 +25,14 @@ class Server:
 	def connectedClient(self, conn, addr):
 		try:
 			while 1:
-				pass
+				data = conn.recv(self.byteSize).decode(self.encoding)
+				if not data:
+					break
+				conn.sendall(data.encode(self.encoding))
 		except socket.error as e:
 			print(ERROR, e)
+
+		conn.close()
 
 	def listen(self):
 		while 1:
