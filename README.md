@@ -20,7 +20,7 @@ The parameters of Server are:
 
 `encoding`: The encoding for encoding and decoding messages [utf-8].
 
-Use the listen method to activate your server
+Use the listen method to activate your server.
 
 ---
 
