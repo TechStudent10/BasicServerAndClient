@@ -27,17 +27,17 @@ The parameters of Server are:
 
 client.py:
 
-from BasicServerAndClient.clientimport Client
-client = Client(host="127.0.0.1", port=5555)
-while 1:
+    from BasicServerAndClient.client import Client
+    client = Client(host="127.0.0.1", port=5555)
+    while 1:
 
-    message = client.getMessages()
+        message = client.getMessages()
 
-    if len(message) != 0:
+        if len(message) != 0:
 
-        print(message)
+            print(message)
 
-    client.send("Message recived")
+        client.send("Message recived")
 
 The parameters of Client are:
 
