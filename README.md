@@ -7,12 +7,9 @@
 To use the server and the client, you need to create a `server.py` and `client.py` file.
 
 server.py:
-
-<div>
 from BasicServerAndClient.server import Server
 server = Server(host="127.0.0.1", port=5555)
 server.listen()
-</div>
 
 The parameters of Server are:
 
@@ -30,19 +27,17 @@ The parameters of Server are:
 
 client.py:
 
-<div>
-from BasicServerAndClient.client import Client
+from BasicServerAndClient.clientimport Client
 client = Client(host="127.0.0.1", port=5555)
 while 1:
 
- message = client.getMessages()
+    message = client.getMessages()
 
- if len(message) != 0:
+    if len(message) != 0:
 
- print(message)
+        print(message)
 
- client.send("Message recived")
-</div>
+    client.send("Message recived")
 
 The parameters of Client are:
 
