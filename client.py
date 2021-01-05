@@ -17,3 +17,4 @@ class Client:
 
 	def sendMessage(self, data):
 		self.client.send(data.encode(self.encoding))
+		self.client.send("".encode(self.encoding))

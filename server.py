@@ -22,21 +22,24 @@ class Server:
 			self.server.listen(self.maxPeople)
 		except socket.error as e:
 			print(ERROR, e)
-		
+
 		print(SERVER, "Server is listening on", self.host, "on port", self.port)
 
 	def connectedClient(self, conn, addr):
 		try:
 			while 1:
 				data = conn.recv(self.byteSize).decode(self.encoding)
-				print(f"{addr}: {data}")
+				print(f"{addr} {data}")
 				if not data:
 					break
+
+				conn.send("Message sent".encode(self.encoding))
 				conn.sendall(data.encode(self.encoding))
 		except socket.error as e:
 			print(ERROR, e)
 
 		conn.close()
+		print(CLIENT, ADDR, "has disconnected.")
 
 	def listen(self):
 		while 1:
