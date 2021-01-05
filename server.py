@@ -10,10 +10,10 @@ class Server:
 	def __init__(self, host=socket.gethostbyname(socket.gethostname()), port=5555, maxPeople=10, byteSize=2048, encoding="utf-8"):
 		self.host = host
 		self.port = port
-		self.maxServer = maxPeople
+		self.maxPeople = maxPeople
 		self.byteSize = byteSize
 		self.encoding = encoding
-		self.addr = (self.port, self.port)
+		self.addr = (self.host, self.port)
 
 		self.server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 		self.server.bind(self.addr)
@@ -28,6 +28,7 @@ class Server:
 				data = conn.recv(self.byteSize).decode(self.encoding)
 				if not data:
 					break
+				print(data)
 				conn.sendall(data.encode(self.encoding))
 		except socket.error as e:
 			print(ERROR, e)
@@ -39,4 +40,4 @@ class Server:
 			conn, addr = self.server.accept()
 			print(CONNECTION, "New connection:", addr)
 
-			start_new_thread(self.connectedClient, args=(conn, addr))
+			start_new_thread(self.connectedClient, (conn, addr))
