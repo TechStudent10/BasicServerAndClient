@@ -6,10 +6,7 @@
 
 To use the server and the client, you need to create a `server.py` and `client.py` file.
 
-server.py:
-from BasicServerAndClient.server import Server
-server = Server(host="127.0.0.1", port=5555)
-server.listen()
+You need to import the Server class into your server.py file.
 
 The parameters of Server are:
 
@@ -23,21 +20,11 @@ The parameters of Server are:
 
 `encoding`: The encoding for encoding and decoding messages [utf-8].
 
+Use the listen method to activate your server
+
 ---
 
-client.py:
-
-    from BasicServerAndClient.client import Client
-    client = Client(host="127.0.0.1", port=5555)
-    while 1:
-
-        message = client.getMessages()
-
-        if len(message) != 0:
-
-            print(message)
-
-        client.send("Message recived")
+You need to import the Client class into your client.py file.
 
 The parameters of Client are:
 
@@ -48,3 +35,5 @@ The parameters of Client are:
 `byteSize`: The amount of bytes you want sent to the server [2048].
 
 `encoding`: The encoding for encoding and decoding messages [utf-8].
+
+You can use the getMessages method to get the messages and the send method to send a message.
