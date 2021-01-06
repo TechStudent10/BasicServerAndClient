@@ -33,7 +33,7 @@ class Server:
 				if not data:
 					break
 
-				conn.send("Message sent".encode(self.encoding))
+				#conn.send("Message sent".encode(self.encoding))
 				conn.sendall(data.encode(self.encoding))
 		except socket.error as e:
 			print(ERROR, e)
