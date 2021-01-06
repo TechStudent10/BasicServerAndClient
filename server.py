@@ -39,7 +39,7 @@ class Server:
 			print(ERROR, e)
 
 		conn.close()
-		print(CLIENT, ADDR, "has disconnected.")
+		print(CLIENT, addr, "has disconnected.")
 
 	def listen(self):
 		while 1:
