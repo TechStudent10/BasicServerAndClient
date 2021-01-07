@@ -20,6 +20,8 @@ The parameters of Server are:
 
 `encoding`: The encoding for encoding and decoding messages [utf-8].
 
+`connectCommand`: The command that executes after someone connected [lambda: print()].
+
 Use the listen method to activate your server.
 
 ---
