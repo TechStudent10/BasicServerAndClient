@@ -22,7 +22,7 @@ The parameters of Server are:
 
 `connectCommand`: The command that executes after someone connected [lambda: print()].
 
-Use the listen method to activate your server.
+Use the `listen` method to activate your server.
 
 ---
 
@@ -38,4 +38,4 @@ The parameters of Client are:
 
 `encoding`: The encoding for encoding and decoding messages [utf-8].
 
-You can use the getMessages method to get the messages and the send method to send a message.
+You can use the `getMessages` method to get the messages and the send method to send a message.
