@@ -24,6 +24,13 @@ The parameters of Server are:
 
 Use the `listen` method to activate your server.
 
+Server Example:
+```Python
+from server import Server
+server = Server(host='localhost', port=5000, maxPeople=20, byteSize=4096, encoding='LF', connectCommand=lambda: print("Hello, World!"))
+server.listen()
+```
+
 ---
 
 You need to import the Client class into your client.py file.
